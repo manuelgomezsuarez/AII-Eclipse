@@ -2,7 +2,7 @@
 '''
 Created on 3 oct. 2017
 
-@author: Admin
+@author: Manuel Gómez Suárez
 '''
 def saludoElectoral(tuplaNombres):
     """Escribir una función que reciba una tupla con nombres, y para cada nombre imprima 

@@ -2,7 +2,7 @@
 '''
 Created on 3 oct. 2017
 
-@author: Admin
+@author: Manuel Gómez Suárez
 '''
 def buscaCadenaTuplas(cadena,listaTuplas):
     """Escribir una función que reciba una cadena a buscar y una lista de tuplas 
