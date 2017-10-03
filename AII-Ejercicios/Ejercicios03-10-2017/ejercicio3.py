@@ -39,10 +39,24 @@ def saludoElectoralRestriccionesGenero(tuplaNombresGeneros,p,n):
             else:
                 print("Estimada "+tuplaNombresGeneros[a][0]+", Vote por mí en las elecciones")
             contador+=1
+    print("####################################################")
     return 0
+
+def nombreApellidos(listaTuplas):
+    """Escribir una función que reciba una lista de tuplas (Apellido, Nombre, 
+        Inicial_segundo_nombre) y devuelva una lista de cadenas donde cada una contenga 
+        primero el nombre, luego la inicial con un punto, y luego el apellido. """
+    listaCadenaRes=[]
+    for n in listaTuplas:
+        listaCadenaRes+=[n[2]+" "+n[1]+". "+n[0]]
+    print(listaCadenaRes)
+    return listaCadenaRes
+
+
+
 
 saludoElectoral(("Manuel","Pepe","Joaquin"))
 saludoElectoralRestricciones(("Manuel","Pepe","Joaquin","Beatriz","Ana","Alvaro","Lidia"),2,3)
 saludoElectoralRestriccionesGenero((("Manuel","hombre"),("Pepe","hombre"),("Joaquin","hombre"),
               ("Beatriz","mujer"),("Ana","mujer"),("Alvaro""hombre"),("Lidia","mujer")),2,3)
-
+nombreApellidos([("Suarez","A","Manuel"),("Cabeza","U","Juan")])
