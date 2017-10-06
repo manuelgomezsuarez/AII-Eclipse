@@ -30,7 +30,7 @@ class Personaje(object):
     
 class Soldado(Personaje):
     def __init__(self,vida,posicion,velocidad,ataque):
-        super(Soldado,self)
+        Personaje.__init__(self,vida,posicion,velocidad)
         self.ataque=ataque
     
     def atacar(self,personaje):
