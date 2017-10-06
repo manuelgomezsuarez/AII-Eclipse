@@ -18,7 +18,7 @@ def showNoticias():
         
         print("\n\n")
 def showNoticiasFecha():
-    print("""Introduzca una fecha con el siguiente formato: "(dd­mm­aaaa):8-9-2017"  """)
+    print("""Introduzca una fecha con el siguiente formato: "8-9-2017"  """)
     fechaBusqueda= str(input())
     print(fechaBusqueda)
     try :
@@ -33,5 +33,9 @@ def showNoticiasFecha():
     except:
         print("Fecha introducidad de forma incorrecta, intentelo de nuevo")
         showNoticiasFecha()
-    
+        
+print("Todas las noticias: \n")        
+showNoticias()
+print("###################################\n")
+print("Noticias filtrada por fecha: \n")
 showNoticiasFecha()

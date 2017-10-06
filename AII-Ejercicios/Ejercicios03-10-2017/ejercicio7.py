@@ -29,7 +29,8 @@ class Personaje(object):
         return self.posicion
     
 class Soldado(Personaje):
-    def __init__(self,ataque):
+    def __init__(self,vida,posicion,velocidad,ataque):
+        super(Soldado,self)
         self.ataque=ataque
     
     def atacar(self,personaje):
@@ -51,7 +52,7 @@ class Campesino(Personaje):
 personajeTest=Personaje(9,0,2)
 personajeTest.recibirAtaque(2)
 personajeTest.mover("left")
-soldadoTest=Soldado(4)
+soldadoTest=Soldado(9,0,2,4)
 soldadoTest.atacar(personajeTest)
 campesinoTest=Campesino(100)
 campesinoTest.cosechar(150)
