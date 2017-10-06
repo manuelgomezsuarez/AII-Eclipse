@@ -19,7 +19,7 @@ def showNoticias():
         print("\n\n")
 def showNoticiasFecha():
     print("""Introduzca una fecha con el siguiente formato: "8-9-2017"  """)
-    fechaBusqueda= str(input())
+    fechaBusqueda= raw_input()
     print(fechaBusqueda)
     try :
         for noticia in entradas:
