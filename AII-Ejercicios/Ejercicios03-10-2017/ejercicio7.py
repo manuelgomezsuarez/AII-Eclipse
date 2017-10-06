@@ -40,7 +40,7 @@ class Soldado(Personaje):
             print("Su vida actual es de: "+str(personaje.vida))
         else:
             print("El personaje ya esta muerto, no es posible atacar")
-            
+             
 class Campesino(Personaje):
     def __init__(self,cosecha):
         self.cosecha=cosecha
