@@ -6,7 +6,13 @@ encoding//Ejercicios03-10-2017/ejercicio3.py=utf-8
 encoding//Ejercicios03-10-2017/ejercicio4.py=utf-8
 encoding//Ejercicios03-10-2017/ejercicio6.py=utf-8
 encoding//Ejercicios03-10-2017/ejercicio7.py=utf-8
+<<<<<<< HEAD
 encoding//Ejercicios06-10-2017/noticiasRSSus.py=utf-8
 encoding//Practica1/noticiasRSSus.py=utf-8
 encoding//Practica1/pracica1.py=utf-8
 encoding//PruebaSQLlite/Prueba.py=utf-8
+=======
+encoding//Ejercicios06-10-2017/noticias.txt=UTF-8
+encoding//Ejercicios06-10-2017/noticiasFeedParser.py=utf-8
+encoding//Ejercicios06-10-2017/noticiasUrlLib.py=utf-8
+>>>>>>> branch 'master' of https://github.com/manuelgomezsuarez/AII-Eclipse-Ejercicios
