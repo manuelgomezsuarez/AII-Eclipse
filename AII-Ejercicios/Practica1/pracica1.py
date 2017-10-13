@@ -8,12 +8,23 @@ import Tkinter as tk
 import sqlite3
 
 
+def almacenaNoticias():
+    conn=sqlite3.connect("noticias")
+    conn.execute('''CREATE TABLE NOTICIAS
+         (ID INT PRIMARY KEY     NOT NULL,
+         TITULO           TEXT    NOT NULL,
+         LINK            TEXT     NOT NULL,
+         FECHA        CHAR(50));''')
+    print "Table created successfully";
+     
+    conn.commit()
+
 ventana = tk.Tk()
 
 button_frame = tk.Frame(ventana)
 button_frame.pack(fill=tk.X, side=tk.BOTTOM)
 
-b1 = tk.Button(button_frame, text='Almacenar')
+b1 = tk.Button(button_frame, text='Almacenar',command=almacenaNoticias)
 b2 = tk.Button(button_frame, text='Listar')
 b3 = tk.Button(button_frame, text='Buscar')
 
