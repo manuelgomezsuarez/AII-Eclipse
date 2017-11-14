@@ -20,7 +20,8 @@ def borraCreaIndex():
     schema = Schema(remitente=KEYWORD(stored=True), 
                     destinatarios=KEYWORD(stored=True),
                     fecha=fields.DATETIME(stored=True),
-                     asunto= KEYWORD(stored=True), cuerpo= TEXT(stored=True))
+                     asunto= KEYWORD(stored=True), cuerpo= TEXT(stored=True),
+                     nombreFichero=KEYWORD(stored=True))
     if not os.path.exists("index"):
         os.mkdir("index")
         ix = create_in("index", schema)
@@ -40,7 +41,7 @@ def borraCreaIndex():
             writer.add_document(remitente=unicode(textoPorPartes[0]),
                                 destinatarios=unicode(textoPorPartes[1]),
                                 fecha=fechaFormat,asunto=unicode(textoPorPartes[3]),
-                                cuerpo=unicode(textoPorPartes[4]))
+                                cuerpo=unicode(textoPorPartes[4]),nombreFichero=unicode(str(numeroFichero)+".txt"))
             numeroFichero=numeroFichero+1
         except Exception as ex:
             print("No hay mas ficheros")
@@ -91,11 +92,18 @@ def busquedaPorEmail(email):
     results = s.search(q)
     return results
 
-def busquedaPorFecha(fecha):        
+
+def ApartadoA(palabra):
+    for n in busquedaPorAsuntoCuerpo(palabra):
+        res=busquedaPorEmail(n.get("remitente"))
+        print(res[0].get("nombreApellidos"))
+        print(n.get("asunto"))
+        
+def ApartadoB(fecha):        
     ix = open_dir("index")
     qp = QueryParser("fecha", schema=ix.schema)
-    query = unicode(raw_input(""))
-    qp.add_plugin(DateParserPlugin())
+    query = unicode("'"+fecha+" to today'")
+    qp.add_plugin(DateParserPlugin(free=True))
     q = qp.parse(query)
     print(q)
     s=ix.searcher()
@@ -103,19 +111,29 @@ def busquedaPorFecha(fecha):
     print(results)
     for n in results:
         print n.get("fecha")
+        print n.get("remitente")
+        print n.get("destinatarios")
+        print n.get("asunto")
+        print("*************\n")
     return results
 
-def ApartadoA(palabra):
-    for n in busquedaPorAsuntoCuerpo(palabra):
-        res=busquedaPorEmail(n.get("remitente"))
-        print(res[0].get("nombreApellidos"))
-        print(n.get("asunto"))
+def ApartadoC(palabrasSpam):
+    ix = open_dir("index")
+    qp = QueryParser("asunto", schema=ix.schema)
+    q = qp.parse(unicode(str(palabrasSpam)))
+    print(q)
+    s=ix.searcher()
+    results = s.search(q)
+    print("Analizando Correos Spam:")
+    print("***********************")
+    for r in results:
+        print(r.get("nombreFichero"))
+    return results
 
-#def ApartadoB(fecha):
 
-#borraCreaIndex()
-#borraCreaIndexAgenda()
-#print(date.datetime.now().strftime("%Y%m%d"))
-busquedaPorFecha("20101015")
+borraCreaIndex()
+borraCreaIndexAgenda()
 
-#ApartadoA("Gracias")
+ApartadoA("Gracias")
+ApartadoB("23 may 2000")
+ApartadoC("constructora OR cliente")
