@@ -18,6 +18,8 @@ from whoosh.qparser import QueryParser
 import shutil
 import os
 import copy
+
+
 def borraCreaIndex(arrayDatos):
     if os.path.exists("index"):
         shutil.rmtree("index")
@@ -284,6 +286,6 @@ def ventanaPrincipal():
 
 
 
-if __name__ == "__main__":
-    
-    ventanaPrincipal()
+# if __name__ == "__main__":
+#     
+#     ventanaPrincipal()
